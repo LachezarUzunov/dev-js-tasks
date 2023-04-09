@@ -18,15 +18,13 @@ function solve() {
     "14.02.2015": 10.2,
   };
 
-  const firstWeek = [
-    {
-      понеделник: "",
-    },
-  ];
-  const secondWeek = [];
+  const degrees = [];
 
-  const first_span = document.querySelector(".first_span");
-  const second_span = document.querySelector(".second_span");
+  const firstSpan = document.querySelector(".first_span");
+  const secondSpan = document.querySelector(".second_span");
+  const thirdSpan = document.querySelector(".third_span");
+
+  const differences = [];
 
   let firstWeekAvg;
   let secondWeekAvg;
@@ -38,14 +36,27 @@ function solve() {
     if (date[1] == "01") {
       if (date[0] <= 7) {
         temp += january[day];
+        degrees.push(january[day]);
       } else {
         secondTemp += january[day];
+        degrees.push(january[day]);
       }
     }
   }
+
+  for (let i = 0; i < degrees.length - 1; i++) {
+    let difference = degrees[i] - degrees[i + 1];
+
+    differences.push(Number(-difference.toFixed(1)));
+  }
+
+  differences.unshift(degrees[0]);
   firstWeekAvg = (temp / 7).toFixed(1);
   secondWeekAvg = (secondTemp / 7).toFixed(1);
-  first_span.textContent = firstWeekAvg;
-  second_span.textContent = secondWeekAvg;
-  console.log(firstWeek);
+  firstSpan.textContent = firstWeekAvg;
+  secondSpan.textContent = secondWeekAvg;
+
+  const text = `понеделник, първи януари: ${differences[0]}, вторник, втори януари: ${differences[1]}, сряда, трети януари: ${differences[2]}, четвъртък, четвърти януари: ${differences[3]}, петък, пети януари: ${differences[4]}, събота, шести януари: ${differences[5]}, неделя, седми януари: ${differences[6]}, понеделник, осми януари: ${differences[7]}, вторник, девети януари: ${differences[8]}, сряда, десети януари: ${differences[9]}, четвъртък, единадесети януари: ${differences[10]}, петък, дванадесети януари: ${differences[11]}, събота, тринадесети януари: ${differences[12]}, неделя, четиринадесети януари: ${differences[13]}`;
+
+  thirdSpan.textContent = text;
 }
