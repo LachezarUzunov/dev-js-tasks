@@ -9,6 +9,8 @@
 .body {
   height: 100vh;
   background-color: steelblue;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 1px;
 }
 
 .centered {
@@ -16,8 +18,4 @@
   display: flex;
   justify-content: center;
   gap: 2rem;
-}
-
-.firts__input option {
-  color: yellow;
 }
