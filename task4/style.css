@@ -1,0 +1,11 @@
+.game {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+
+.input_section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
